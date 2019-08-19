@@ -677,11 +677,7 @@ impl BigBox {
     }
 
     // find if main has any unique possibilities that sub1 or sub2 don't have
-    pub fn main_vs_sub_unique_possibilities(
-        main: &[u8],
-        sub1: &[u8],
-        sub2: &[u8],
-    ) -> Vec<u8> {
+    pub fn main_vs_sub_unique_possibilities(main: &[u8], sub1: &[u8], sub2: &[u8]) -> Vec<u8> {
         let mut row_col_unique: Vec<u8> = Vec::new();
 
         for possibility in main {
@@ -762,13 +758,17 @@ impl BigBox {
             for cell in &all_groups[all_groups_index as usize] {
                 if affected_indexes.contains(cell) {
                     for note in ALL_NOTES_POSSIBILITIES.iter() {
-                        if !valid_notes.contains(note) && self.little_boxes[*cell as usize].make_impossible(*note) {
+                        if !valid_notes.contains(note)
+                            && self.little_boxes[*cell as usize].make_impossible(*note)
+                        {
                             note_updated = true;
                         }
                     }
                 } else {
                     for note in ALL_NOTES_POSSIBILITIES.iter() {
-                        if valid_notes.contains(note) && self.little_boxes[*cell as usize].make_impossible(*note) {
+                        if valid_notes.contains(note)
+                            && self.little_boxes[*cell as usize].make_impossible(*note)
+                        {
                             note_updated = true;
                         }
                     }
@@ -861,7 +861,9 @@ impl BigBox {
 
         for (index, valid_pair) in valid_obvious_pair_and_group.iter() {
             for cell in &all_groups_indexes[*index as usize] {
-                if *valid_pair != self.little_boxes[*cell as usize].get_possibles() && self.little_boxes[*cell as usize].make_many_impossible(valid_pair.to_vec()) {
+                if *valid_pair != self.little_boxes[*cell as usize].get_possibles()
+                    && self.little_boxes[*cell as usize].make_many_impossible(valid_pair.to_vec())
+                {
                     self.set_times_updated_plus_one();
                 }
             }
