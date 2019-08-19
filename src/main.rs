@@ -1,12 +1,12 @@
-use time::PreciseTime;
 use actix_web::{web, App, HttpResponse, HttpServer};
 use sudoku_solver::WebForm;
+use time::PreciseTime;
 
-fn main(){
+fn main() {
     HttpServer::new(|| {
         App::new()
-        .route("/", web::get().to(index))
-        .route("/result", web::get().to(result))
+            .route("/", web::get().to(index))
+            .route("/result", web::get().to(result))
     })
     .bind("0.0.0.0:8000")
     .expect("Cannot bind to port 8000")
@@ -260,17 +260,15 @@ fn index() -> HttpResponse {
 </html>")
 }
 
-// fn result(form: web::Query<WebForm>) -> HttpResponse {
-
 fn result(form: web::Query<WebForm>) -> HttpResponse {
-  let start = PreciseTime::now();
+    let start = PreciseTime::now();
 
-  let puzzle_result = form.convert_to_big_box();
-  match puzzle_result {
-    Some(mut puzzle) => {
-      puzzle.solve_puzzle();
-      let stop = PreciseTime::now();
-      HttpResponse::Ok()
+    let puzzle_result = form.convert_to_big_box();
+    match puzzle_result {
+        Some(mut puzzle) => {
+            puzzle.solve_puzzle();
+            let stop = PreciseTime::now();
+            HttpResponse::Ok()
         .content_type("text/html")
         .body(format!("<!DOCTYPE html>
 <html lang=\"en\">
@@ -525,7 +523,7 @@ fn result(form: web::Query<WebForm>) -> HttpResponse {
 
   </body>
 </html>",
-        start.to(stop).num_milliseconds() as f64 / 1000 as f64,
+        start.to(stop).num_milliseconds() as f64 / 1000_f64,
         puzzle.little_boxes[0].pretty_print(), puzzle.little_boxes[1].pretty_print(), puzzle.little_boxes[2].pretty_print(), 
         puzzle.little_boxes[3].pretty_print(), puzzle.little_boxes[4].pretty_print(), puzzle.little_boxes[5].pretty_print(), 
         puzzle.little_boxes[6].pretty_print(), puzzle.little_boxes[7].pretty_print(), puzzle.little_boxes[8].pretty_print(), 
@@ -554,12 +552,9 @@ fn result(form: web::Query<WebForm>) -> HttpResponse {
         puzzle.little_boxes[75].pretty_print(), puzzle.little_boxes[76].pretty_print(), puzzle.little_boxes[77].pretty_print(), 
         puzzle.little_boxes[78].pretty_print(), puzzle.little_boxes[79].pretty_print(), puzzle.little_boxes[80].pretty_print(),
         ))
-    },
-    None => {
-      HttpResponse::Ok()
-        .content_type("text/html")
-        .body(format!("It failed! <a href=\"/\">try again</a>?"))
+        }
+        None => HttpResponse::Ok()
+            .content_type("text/html")
+            .body("It failed! <a href=\"/\">try again</a>?".to_string()),
     }
-  }
-  
 }

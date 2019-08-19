@@ -1,6 +1,6 @@
-use std::fmt;
-use std::collections::HashMap;
 use serde::Deserialize;
+use std::collections::HashMap;
+use std::fmt;
 
 const MEDIUM_BOX_1: [u8; 9] = [0, 1, 2, 9, 10, 11, 18, 19, 20];
 const MEDIUM_BOX_2: [u8; 9] = [3, 4, 5, 12, 13, 14, 21, 22, 23];
@@ -14,7 +14,6 @@ const MEDIUM_BOX_7: [u8; 9] = [54, 55, 56, 63, 64, 65, 72, 73, 74];
 const MEDIUM_BOX_8: [u8; 9] = [57, 58, 59, 66, 67, 68, 75, 76, 77];
 const MEDIUM_BOX_9: [u8; 9] = [60, 61, 62, 69, 70, 71, 78, 79, 80];
 
-
 const ROW_STARTERS: [u8; 9] = [0, 9, 18, 27, 36, 45, 54, 63, 72];
 const COL_STARTERS: [u8; 9] = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 const BOX_STARTERS: [u8; 9] = [0, 3, 6, 27, 30, 33, 54, 57, 60];
@@ -24,7 +23,6 @@ const ALL_NOTES_POSSIBILITIES: [u8; 9] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 #[derive(Debug)]
 pub struct LittleBox {
     value: u8,
-    original_value: u8,
     index: u8,
     one_p: bool,
     two_p: bool,
@@ -124,7 +122,7 @@ pub struct WebForm {
     pub cell_77: String,
     pub cell_78: String,
     pub cell_79: String,
-    pub cell_80: String
+    pub cell_80: String,
 }
 
 impl LittleBox {
@@ -133,10 +131,9 @@ impl LittleBox {
             return None;
         }
         if value == 0 {
-            return Some(LittleBox{
-                value: value,
-                original_value: value,
-                index: index,
+            Some(LittleBox {
+                value,
+                index,
                 one_p: true,
                 two_p: true,
                 three_p: true,
@@ -148,10 +145,9 @@ impl LittleBox {
                 nine_p: true,
             })
         } else {
-            return Some(LittleBox{
-                value: value,
-                original_value: value,
-                index: index,
+            Some(LittleBox {
+                value,
+                index,
                 one_p: false,
                 two_p: false,
                 three_p: false,
@@ -172,7 +168,7 @@ impl LittleBox {
     pub fn get_pretty_value(&self) -> String {
         let value = self.get_value();
         if value == 0 {
-            format!(" ")
+            " ".to_string()
         } else {
             format!("{}", self.get_value())
         }
@@ -186,7 +182,7 @@ impl LittleBox {
     pub fn make_impossible(&mut self, number: u8) -> bool {
         let possibles = self.get_possibles();
         if possibles.contains(&number) {
-            match number{
+            match number {
                 1 => self.one_p = false,
                 2 => self.two_p = false,
                 3 => self.three_p = false,
@@ -215,14 +211,14 @@ impl LittleBox {
         was_updated
     }
 
-    pub fn make_all_impossible(&mut self){
-        for i in 1..=9{
+    pub fn make_all_impossible(&mut self) {
+        for i in 1..=9 {
             self.make_impossible(i);
         }
     }
 
     // this is if something bad happens and the board needs to be rerun
-    pub fn make_all_possible(&mut self){
+    pub fn make_all_possible(&mut self) {
         self.one_p = true;
         self.two_p = true;
         self.three_p = true;
@@ -237,31 +233,31 @@ impl LittleBox {
     pub fn get_possibles(&self) -> Vec<u8> {
         let mut possibles: Vec<u8> = Vec::new();
 
-        if self.one_p == true {
+        if self.one_p {
             possibles.push(1);
         }
-        if self.two_p == true {
+        if self.two_p {
             possibles.push(2);
         }
-        if self.three_p == true {
+        if self.three_p {
             possibles.push(3);
         }
-        if self.four_p == true {
+        if self.four_p {
             possibles.push(4);
         }
-        if self.five_p == true {
+        if self.five_p {
             possibles.push(5);
         }
-        if self.six_p == true {
+        if self.six_p {
             possibles.push(6);
         }
-        if self.seven_p == true {
+        if self.seven_p {
             possibles.push(7);
         }
-        if self.eight_p == true {
+        if self.eight_p {
             possibles.push(8);
         }
-        if self.nine_p == true {
+        if self.nine_p {
             possibles.push(9);
         }
 
@@ -281,70 +277,73 @@ impl LittleBox {
                         } else {
                             return_string += &"&nbsp;".to_string();
                         }
-                    },
+                    }
                     2 => {
                         if this_notes.contains(&2) {
                             return_string += &"2".to_string();
                         } else {
                             return_string += &"&nbsp;".to_string();
                         }
-                    },
+                    }
                     3 => {
                         if this_notes.contains(&3) {
                             return_string += &"3<br />".to_string();
                         } else {
                             return_string += &"&nbsp;<br />".to_string();
                         }
-                    },
+                    }
                     4 => {
                         if this_notes.contains(&4) {
                             return_string += &"4".to_string();
                         } else {
                             return_string += &"&nbsp;".to_string();
                         }
-                    },
+                    }
                     5 => {
                         if this_notes.contains(&5) {
                             return_string += &"5".to_string();
                         } else {
                             return_string += &"&nbsp;".to_string();
                         }
-                    },
+                    }
                     6 => {
                         if this_notes.contains(&6) {
                             return_string += &"6<br />".to_string();
                         } else {
                             return_string += &"&nbsp;<br />".to_string();
                         }
-                    },
+                    }
                     7 => {
                         if this_notes.contains(&7) {
                             return_string += &"7".to_string();
                         } else {
                             return_string += &"&nbsp;".to_string();
                         }
-                    },
+                    }
                     8 => {
                         if this_notes.contains(&8) {
                             return_string += &"8".to_string();
                         } else {
                             return_string += &"&nbsp;".to_string();
                         }
-                    },
+                    }
                     9 => {
                         if this_notes.contains(&9) {
                             return_string += &"9".to_string();
                         } else {
                             return_string += &"&nbsp;".to_string();
                         }
-                    },
+                    }
                     _ => {}
-                }                
+                }
             }
             return format!("<div class=\"notes\">{}</div>", return_string);
         } else {
-            return format!("<input maxlength=\"1\" name=\"name_{}\" type=\"number\" value=\"{}\" disabled>",
-                self.index, self.get_value());
+            return format!(
+                "<input maxlength=\"1\" name=\"name_{}\" type=\"number\" value=\"{}\" disabled>",
+                self.index,
+                self.get_value()
+            );
         }
     }
 }
@@ -358,7 +357,10 @@ impl fmt::Display for LittleBox {
 impl BigBox {
     pub fn new(values: Vec<u8>) -> Option<BigBox> {
         if values.len() != 81 {
-            println!("Puzzle length is incorrect. It's {} boxes long.", values.len());
+            println!(
+                "Puzzle length is incorrect. It's {} boxes long.",
+                values.len()
+            );
             return None;
         }
 
@@ -366,7 +368,7 @@ impl BigBox {
 
         for (index, value) in values.iter().enumerate() {
             let new_little_box = LittleBox::new(*value, index as u8);
-            match new_little_box{
+            match new_little_box {
                 Some(lb) => {
                     little_box_values.push(lb);
                 }
@@ -374,10 +376,9 @@ impl BigBox {
                     return None;
                 }
             }
-            
         }
 
-        Some(BigBox{
+        Some(BigBox {
             little_boxes: little_box_values,
             times_updated: 0,
         })
@@ -403,51 +404,51 @@ impl BigBox {
     }
 
     // get times_updated
-    pub fn get_times_updated(&self) -> u32{
+    pub fn get_times_updated(&self) -> u32 {
         self.times_updated
     }
 
     // set times updated to +1
-    pub fn set_times_updated_plus_one(&mut self){
-        self.times_updated = self.times_updated + 1;
+    pub fn set_times_updated_plus_one(&mut self) {
+        self.times_updated += 1;
     }
 
     // this gets box indexes given an index
     pub fn get_box_indices(index: &u8) -> Vec<u8> {
         let mut affected_indices: Vec<u8> = Vec::new();
-        if MEDIUM_BOX_1.contains(&index){
+        if MEDIUM_BOX_1.contains(&index) {
             for i in &MEDIUM_BOX_1 {
                 affected_indices.push(*i);
             }
-        } else if MEDIUM_BOX_2.contains(&index){
+        } else if MEDIUM_BOX_2.contains(&index) {
             for i in &MEDIUM_BOX_2 {
                 affected_indices.push(*i);
             }
-        } else if MEDIUM_BOX_3.contains(&index){
+        } else if MEDIUM_BOX_3.contains(&index) {
             for i in &MEDIUM_BOX_3 {
                 affected_indices.push(*i);
             }
-        } else if MEDIUM_BOX_4.contains(&index){
+        } else if MEDIUM_BOX_4.contains(&index) {
             for i in &MEDIUM_BOX_4 {
                 affected_indices.push(*i);
             }
-        } else if MEDIUM_BOX_5.contains(&index){
+        } else if MEDIUM_BOX_5.contains(&index) {
             for i in &MEDIUM_BOX_5 {
                 affected_indices.push(*i);
             }
-        } else if MEDIUM_BOX_6.contains(&index){
+        } else if MEDIUM_BOX_6.contains(&index) {
             for i in &MEDIUM_BOX_6 {
                 affected_indices.push(*i);
             }
-        } else if MEDIUM_BOX_7.contains(&index){
+        } else if MEDIUM_BOX_7.contains(&index) {
             for i in &MEDIUM_BOX_7 {
                 affected_indices.push(*i);
             }
-        } else if MEDIUM_BOX_8.contains(&index){
+        } else if MEDIUM_BOX_8.contains(&index) {
             for i in &MEDIUM_BOX_8 {
                 affected_indices.push(*i);
             }
-        } else if MEDIUM_BOX_9.contains(&index){
+        } else if MEDIUM_BOX_9.contains(&index) {
             for i in &MEDIUM_BOX_9 {
                 affected_indices.push(*i);
             }
@@ -459,7 +460,7 @@ impl BigBox {
     pub fn get_row_indices(index: &u8) -> Vec<u8> {
         let row_number = index / 9;
         let start = row_number * 9;
-        (start..=start+8).collect::<Vec<u8>>()
+        (start..=start + 8).collect::<Vec<u8>>()
     }
 
     pub fn get_col_indices(index: &u8) -> Vec<u8> {
@@ -472,16 +473,16 @@ impl BigBox {
     pub fn get_all_affected_indices(index: u8) -> Vec<u8> {
         let mut affected_indices: Vec<u8> = Vec::new();
 
-        for i in BigBox::get_box_indices(&index){
+        for i in BigBox::get_box_indices(&index) {
             affected_indices.push(i);
         }
-        for i in BigBox::get_col_indices(&index){
-            if !affected_indices.contains(&i){
+        for i in BigBox::get_col_indices(&index) {
+            if !affected_indices.contains(&i) {
                 affected_indices.push(i)
             }
         }
-        for i in BigBox::get_row_indices(&index){
-            if !affected_indices.contains(&i){
+        for i in BigBox::get_row_indices(&index) {
+            if !affected_indices.contains(&i) {
                 affected_indices.push(i);
             }
         }
@@ -490,7 +491,7 @@ impl BigBox {
         affected_indices
     }
 
-    pub fn make_all_cells_all_possibilities_possible(&mut self){
+    pub fn make_all_cells_all_possibilities_possible(&mut self) {
         for index in 0..=80 {
             if self.little_boxes[index as usize].get_value() == 0 {
                 self.little_boxes[index as usize].make_all_possible();
@@ -499,12 +500,12 @@ impl BigBox {
     }
 
     // this is a first run thing, and shouldn't have to be run many times
-    pub fn scan_for_make_impossible(&self) -> Vec<(u8, u8)>{
+    pub fn scan_for_make_impossible(&self) -> Vec<(u8, u8)> {
         // format of tuple is index, value
         let mut affected_list: Vec<(u8, u8)> = Vec::new();
         for (i, value) in self.little_boxes.iter().enumerate() {
             if value.value != 0 {
-                for affected in BigBox::get_all_affected_indices(i as u8){
+                for affected in BigBox::get_all_affected_indices(i as u8) {
                     // self.little_boxes[affected as usize].make_impossible(value.value);
                     affected_list.push((affected, value.value));
                 }
@@ -514,14 +515,14 @@ impl BigBox {
     }
 
     // this is a first run thing, and shouldn't have to be run many times
-    pub fn mark_impossible(&mut self, impossible_list: Vec<(u8, u8)>){
+    pub fn mark_impossible(&mut self, impossible_list: Vec<(u8, u8)>) {
         for (index, number) in impossible_list {
             self.little_boxes[index as usize].make_impossible(number);
         }
     }
 
     // scan each item in the puzzle to see what has only one possible solution
-    pub fn scan_one_possible(&self) -> Vec<(u8, u8)>{
+    pub fn scan_one_possible(&self) -> Vec<(u8, u8)> {
         let mut one_possible_list: Vec<(u8, u8)> = Vec::new();
         for index in 0..=80 {
             if self.little_boxes[index].value == 0 {
@@ -538,53 +539,53 @@ impl BigBox {
     }
 
     // scan for only one box can have a value in a row/col or med box
-    pub fn scan_for_one_possible_in_group(&mut self, index: u8){
+    pub fn scan_for_one_possible_in_group(&mut self, index: u8) {
         // check for box
         let this_possible_list = self.little_boxes[index as usize].get_possibles();
         let mut box_other_possible_list: Vec<u8> = Vec::new();
 
-        for i in BigBox::get_box_indices(&index){
+        for i in BigBox::get_box_indices(&index) {
             if i != index {
                 box_other_possible_list.append(&mut self.little_boxes[i as usize].get_possibles());
             }
         }
         for this_possible in &this_possible_list {
-            if !box_other_possible_list.contains(&this_possible){
-                self.add_valid_values(vec!((index, *this_possible)));
+            if !box_other_possible_list.contains(&this_possible) {
+                self.add_valid_values(vec![(index, *this_possible)]);
             }
         }
 
         // go again for columns
         let mut box_other_possible_list: Vec<u8> = Vec::new();
 
-        for i in BigBox::get_col_indices(&index){
-            if i != index {
-                box_other_possible_list.append(& mut self.little_boxes[i as usize].get_possibles());
-            }
-        }
-        for this_possible in &this_possible_list {
-            if !box_other_possible_list.contains(&this_possible){
-                self.add_valid_values(vec!((index, *this_possible)));
-            }
-        }
-
-        // go again for rows
-        let mut box_other_possible_list: Vec<u8> = Vec::new();
-        for i in BigBox::get_row_indices(&index){
+        for i in BigBox::get_col_indices(&index) {
             if i != index {
                 box_other_possible_list.append(&mut self.little_boxes[i as usize].get_possibles());
             }
         }
         for this_possible in &this_possible_list {
-            if !box_other_possible_list.contains(&this_possible){
-                self.add_valid_values(vec!((index, *this_possible)));
+            if !box_other_possible_list.contains(&this_possible) {
+                self.add_valid_values(vec![(index, *this_possible)]);
+            }
+        }
+
+        // go again for rows
+        let mut box_other_possible_list: Vec<u8> = Vec::new();
+        for i in BigBox::get_row_indices(&index) {
+            if i != index {
+                box_other_possible_list.append(&mut self.little_boxes[i as usize].get_possibles());
+            }
+        }
+        for this_possible in &this_possible_list {
+            if !box_other_possible_list.contains(&this_possible) {
+                self.add_valid_values(vec![(index, *this_possible)]);
             }
         }
     }
 
     // check if a medium box has a row or column with unique values to remove
     // possible candidates from that same row or column in other medium boxes
-    pub fn find_medium_box_row_col_unique_possibles(&mut self, med_box: [u8; 9]){
+    pub fn find_medium_box_row_col_unique_possibles(&mut self, med_box: [u8; 9]) {
         /*
         The logic for this one doesn't have to be hard. Do it like this:
         match the medium box by index
@@ -596,13 +597,13 @@ impl BigBox {
         */
 
         // make row and column index lists
-        let row1: Vec<u8> = vec!(med_box[0], med_box[1], med_box[2]);
-        let row2: Vec<u8> = vec!(med_box[3], med_box[4], med_box[5]);
-        let row3: Vec<u8> = vec!(med_box[6], med_box[7], med_box[8]);
+        let row1: Vec<u8> = vec![med_box[0], med_box[1], med_box[2]];
+        let row2: Vec<u8> = vec![med_box[3], med_box[4], med_box[5]];
+        let row3: Vec<u8> = vec![med_box[6], med_box[7], med_box[8]];
 
-        let col1: Vec<u8> = vec!(med_box[0], med_box[3], med_box[6]);
-        let col2: Vec<u8> = vec!(med_box[1], med_box[4], med_box[7]);
-        let col3: Vec<u8> = vec!(med_box[2], med_box[5], med_box[8]);
+        let col1: Vec<u8> = vec![med_box[0], med_box[3], med_box[6]];
+        let col2: Vec<u8> = vec![med_box[1], med_box[4], med_box[7]];
+        let col3: Vec<u8> = vec![med_box[2], med_box[5], med_box[8]];
 
         // get row and column possibilities lists
         let row1_p = self.get_group_possibles(&row1);
@@ -614,30 +615,54 @@ impl BigBox {
         let col3_p = self.get_group_possibles(&col3);
 
         // done finding everything, now mark the affected boxes
-        self.mark_list_impossible_outside_subgroup(BigBox::get_row_indices(&row1[0]),
-            row1, BigBox::main_vs_sub_unique_possibilities(&row1_p, &row2_p, &row3_p));
-        self.mark_list_impossible_outside_subgroup(BigBox::get_row_indices(&row2[0]),
-            row2, BigBox::main_vs_sub_unique_possibilities(&row2_p, &row1_p, &row3_p));
-        self.mark_list_impossible_outside_subgroup(BigBox::get_row_indices(&row3[0]),
-            row3, BigBox::main_vs_sub_unique_possibilities(&row3_p, &row2_p, &row1_p));
+        self.mark_list_impossible_outside_subgroup(
+            BigBox::get_row_indices(&row1[0]),
+            row1,
+            BigBox::main_vs_sub_unique_possibilities(&row1_p, &row2_p, &row3_p),
+        );
+        self.mark_list_impossible_outside_subgroup(
+            BigBox::get_row_indices(&row2[0]),
+            row2,
+            BigBox::main_vs_sub_unique_possibilities(&row2_p, &row1_p, &row3_p),
+        );
+        self.mark_list_impossible_outside_subgroup(
+            BigBox::get_row_indices(&row3[0]),
+            row3,
+            BigBox::main_vs_sub_unique_possibilities(&row3_p, &row2_p, &row1_p),
+        );
 
-        self.mark_list_impossible_outside_subgroup(BigBox::get_col_indices(&col1[0]),
-            col1, BigBox::main_vs_sub_unique_possibilities(&col1_p, &col2_p, &col3_p));
-        self.mark_list_impossible_outside_subgroup(BigBox::get_col_indices(&col2[0]),
-            col2, BigBox::main_vs_sub_unique_possibilities(&col2_p, &col1_p, &col3_p));
-        self.mark_list_impossible_outside_subgroup(BigBox::get_col_indices(&col3[0]),
-            col3, BigBox::main_vs_sub_unique_possibilities(&col3_p, &col2_p, &col1_p));
+        self.mark_list_impossible_outside_subgroup(
+            BigBox::get_col_indices(&col1[0]),
+            col1,
+            BigBox::main_vs_sub_unique_possibilities(&col1_p, &col2_p, &col3_p),
+        );
+        self.mark_list_impossible_outside_subgroup(
+            BigBox::get_col_indices(&col2[0]),
+            col2,
+            BigBox::main_vs_sub_unique_possibilities(&col2_p, &col1_p, &col3_p),
+        );
+        self.mark_list_impossible_outside_subgroup(
+            BigBox::get_col_indices(&col3[0]),
+            col3,
+            BigBox::main_vs_sub_unique_possibilities(&col3_p, &col2_p, &col1_p),
+        );
     }
 
     // mark impossible possibilities not in a subgroup
-    pub fn mark_list_impossible_outside_subgroup(&mut self, big_group: Vec<u8>, small_group: Vec<u8>, mark_list: Vec<u8>){
+    pub fn mark_list_impossible_outside_subgroup(
+        &mut self,
+        big_group: Vec<u8>,
+        small_group: Vec<u8>,
+        mark_list: Vec<u8>,
+    ) {
         let mut updated = false;
-        if mark_list.len() > 0 {
-            for index in big_group{
-                if !small_group.contains(&index){
-                    for number in &mark_list{
-                        let was_updated = self.little_boxes[index as usize].make_impossible(*number);
-                        if was_updated == true {
+        if !mark_list.is_empty() {
+            for index in big_group {
+                if !small_group.contains(&index) {
+                    for number in &mark_list {
+                        let was_updated =
+                            self.little_boxes[index as usize].make_impossible(*number);
+                        if was_updated {
                             updated = true;
                         }
                     }
@@ -646,20 +671,22 @@ impl BigBox {
         }
 
         // update times updated
-        if updated == true {
+        if updated {
             self.set_times_updated_plus_one();
         }
     }
 
     // find if main has any unique possibilities that sub1 or sub2 don't have
-    pub fn main_vs_sub_unique_possibilities(main: &Vec<u8>, sub1: &Vec<u8>, sub2: &Vec<u8>) -> Vec<u8>{
+    pub fn main_vs_sub_unique_possibilities(
+        main: &[u8],
+        sub1: &[u8],
+        sub2: &[u8],
+    ) -> Vec<u8> {
         let mut row_col_unique: Vec<u8> = Vec::new();
-        
+
         for possibility in main {
-            if !sub1.contains(&possibility){
-                if !sub2.contains(&possibility){
-                    row_col_unique.push(*possibility);
-                }
+            if !sub1.contains(&possibility) && !sub2.contains(&possibility) {
+                row_col_unique.push(*possibility);
             }
         }
 
@@ -667,11 +694,11 @@ impl BigBox {
     }
 
     // get possibles of a group of little boxes
-    pub fn get_group_possibles(&self, little_box_group: &Vec<u8>) -> Vec<u8> {
+    pub fn get_group_possibles(&self, little_box_group: &[u8]) -> Vec<u8> {
         let mut return_vec: Vec<u8> = Vec::new();
         for little_box in little_box_group {
-            for possible in self.little_boxes[*little_box as usize].get_possibles(){
-                if !return_vec.contains(&possible){
+            for possible in self.little_boxes[*little_box as usize].get_possibles() {
+                if !return_vec.contains(&possible) {
                     return_vec.push(possible);
                 }
             }
@@ -697,7 +724,7 @@ impl BigBox {
     }
 
     // this is a catch all for updating notes based on pairs/triples/etc
-    pub fn process_and_update_notes(&mut self){
+    pub fn process_and_update_notes(&mut self) {
         let all_groups = BigBox::get_all_groups_indexes();
         // this'll be processed at the end
         // in format <all_groups_index, affected_indexes, valid_notes>
@@ -716,16 +743,14 @@ impl BigBox {
                 }
             }
 
-            // got a list of notes and their number of possibilities, now it's time to 
+            // got a list of notes and their number of possibilities, now it's time to
             // process these to see if there are doubles, triples, or even quadruples
             match BigBox::find_valid_multiples(2, &group_posibilities_no) {
-                Some(i) => {
-                    match self.find_valid_indexes(&this_groups_indexes, &i, 2) {
-                        Some(n) => {
-                            process_list.push((all_groups_index as u8, n, i));
-                        },
-                        None => {}
+                Some(i) => match self.find_valid_indexes(&this_groups_indexes, &i, 2) {
+                    Some(n) => {
+                        process_list.push((all_groups_index as u8, n, i));
                     }
+                    None => {}
                 },
                 None => {}
             }
@@ -735,20 +760,16 @@ impl BigBox {
 
         for (all_groups_index, affected_indexes, valid_notes) in process_list {
             for cell in &all_groups[all_groups_index as usize] {
-                if affected_indexes.contains(cell){
+                if affected_indexes.contains(cell) {
                     for note in ALL_NOTES_POSSIBILITIES.iter() {
-                        if !valid_notes.contains(note){
-                            if self.little_boxes[*cell as usize].make_impossible(*note){
-                                note_updated = true;
-                            }
+                        if !valid_notes.contains(note) && self.little_boxes[*cell as usize].make_impossible(*note) {
+                            note_updated = true;
                         }
                     }
                 } else {
                     for note in ALL_NOTES_POSSIBILITIES.iter() {
-                        if valid_notes.contains(note){
-                            if self.little_boxes[*cell as usize].make_impossible(*note) {
-                                note_updated = true;
-                            }
+                        if valid_notes.contains(note) && self.little_boxes[*cell as usize].make_impossible(*note) {
+                            note_updated = true;
                         }
                     }
                 }
@@ -760,7 +781,10 @@ impl BigBox {
         }
     }
 
-    pub fn find_valid_multiples(type_of_multiple: u8, group_posibilities_no: &HashMap<u8, u8>) -> Option<Vec<u8>> {
+    pub fn find_valid_multiples(
+        type_of_multiple: u8,
+        group_posibilities_no: &HashMap<u8, u8>,
+    ) -> Option<Vec<u8>> {
         let mut return_notes: Vec<u8> = Vec::new();
         for (key, no_of_possibilities) in group_posibilities_no {
             if no_of_possibilities == &type_of_multiple {
@@ -777,15 +801,19 @@ impl BigBox {
 
     // take self, a group I'm evaluating, and the notes in question in format
     // <self, indexes, notes>
-    pub fn find_valid_indexes(&self, this_groups_indexes: &Vec<u8>, notes: &Vec<u8>, type_of_multiple: u8)
-     -> Option<Vec<u8>> {
+    pub fn find_valid_indexes(
+        &self,
+        this_groups_indexes: &[u8],
+        notes: &[u8],
+        type_of_multiple: u8,
+    ) -> Option<Vec<u8>> {
         let mut return_indexes: Vec<u8> = Vec::new();
         for cell in this_groups_indexes {
             let cells_possibilities = self.little_boxes[*cell as usize].get_possibles();
-            if cells_possibilities.len() > 0 {
+            if !cells_possibilities.is_empty() {
                 let mut possibility_count = 0;
                 for possibility in &cells_possibilities {
-                    if notes.contains(&possibility){
+                    if notes.contains(&possibility) {
                         possibility_count += 1;
                     }
                 }
@@ -803,7 +831,7 @@ impl BigBox {
         }
     }
 
-    pub fn process_obvious_pairs(&mut self){
+    pub fn process_obvious_pairs(&mut self) {
         let all_groups_indexes = BigBox::get_all_groups_indexes();
         // get all groups and start running through them to see if there are pairs of doubles
 
@@ -811,7 +839,7 @@ impl BigBox {
         // and the valid pair that can be run on the big board's subgroup.
         let mut valid_obvious_pair_and_group: Vec<(u8, Vec<u8>)> = Vec::new();
 
-        for (index, group) in all_groups_indexes.iter().enumerate(){
+        for (index, group) in all_groups_indexes.iter().enumerate() {
             let mut hash_count: HashMap<Vec<u8>, u8> = HashMap::new();
 
             // go through the cells in the group, add them to the hashmap
@@ -833,20 +861,18 @@ impl BigBox {
 
         for (index, valid_pair) in valid_obvious_pair_and_group.iter() {
             for cell in &all_groups_indexes[*index as usize] {
-                if *valid_pair != self.little_boxes[*cell as usize].get_possibles() {
-                    if self.little_boxes[*cell as usize].make_many_impossible(valid_pair.to_vec()) {
-                        self.set_times_updated_plus_one();
-                    }
+                if *valid_pair != self.little_boxes[*cell as usize].get_possibles() && self.little_boxes[*cell as usize].make_many_impossible(valid_pair.to_vec()) {
+                    self.set_times_updated_plus_one();
                 }
             }
         }
     }
 
     // update with the scan_one_possible list
-    pub fn add_valid_values(&mut self, valid_values: Vec<(u8, u8)>){
+    pub fn add_valid_values(&mut self, valid_values: Vec<(u8, u8)>) {
         for (index, number) in valid_values {
             self.update_little_box_value(&index, &number);
-            
+
             // now update the affected rows
             let affected_list = BigBox::get_all_affected_indices(index);
             for i in affected_list {
@@ -855,18 +881,18 @@ impl BigBox {
         }
     }
 
-    pub fn solve_puzzle(&mut self){
+    pub fn solve_puzzle(&mut self) {
         self.mark_impossible(self.scan_for_make_impossible());
 
         loop {
             let update_list = self.scan_one_possible();
             let total_times_updated = self.get_times_updated();
-            if update_list.len() > 0 {
+            if !update_list.is_empty() {
                 self.add_valid_values(update_list);
             }
 
-            for i in 0..=80{
-                if self.little_boxes[i].get_value() == 0{
+            for i in 0..=80 {
+                if self.little_boxes[i].get_value() == 0 {
                     self.scan_for_one_possible_in_group(i as u8);
                 }
             }
@@ -880,8 +906,6 @@ impl BigBox {
             self.find_medium_box_row_col_unique_possibles(MEDIUM_BOX_7);
             self.find_medium_box_row_col_unique_possibles(MEDIUM_BOX_8);
             self.find_medium_box_row_col_unique_possibles(MEDIUM_BOX_9);
-
-            
 
             // this should happen if the board wasn't updated.
             if total_times_updated == self.get_times_updated() {
@@ -900,76 +924,118 @@ impl BigBox {
         }
     }
 
-    pub fn print_notes(&self) -> String{
+    pub fn print_notes(&self) -> String {
         let mut notes: String = "".to_string();
         notes = notes + &"Some notes:<br />".to_string();
         for i in 0..=80 {
             if self.little_boxes[i].get_value() == 0 {
-                notes = notes + &format!("Index # {} possibilities: {:?}<br />", i, self.little_boxes[i].get_possibles());
+                notes = notes
+                    + &format!(
+                        "Index # {} possibilities: {:?}<br />",
+                        i,
+                        self.little_boxes[i].get_possibles()
+                    );
             }
         }
         notes
     }
 }
 
-impl WebForm{
+impl WebForm {
     pub fn convert_to_big_box(&self) -> Option<BigBox> {
-        BigBox::new(vec!(
-            WebForm::convert_cell_to_u8(&self.cell_0),  WebForm::convert_cell_to_u8(&self.cell_1),
-            WebForm::convert_cell_to_u8(&self.cell_2),  WebForm::convert_cell_to_u8(&self.cell_3),
-            WebForm::convert_cell_to_u8(&self.cell_4),  WebForm::convert_cell_to_u8(&self.cell_5), 
-            WebForm::convert_cell_to_u8(&self.cell_6),  WebForm::convert_cell_to_u8(&self.cell_7),
-            WebForm::convert_cell_to_u8(&self.cell_8),  WebForm::convert_cell_to_u8(&self.cell_9),
-            WebForm::convert_cell_to_u8(&self.cell_10), WebForm::convert_cell_to_u8(&self.cell_11),
-            WebForm::convert_cell_to_u8(&self.cell_12), WebForm::convert_cell_to_u8(&self.cell_13),
-            WebForm::convert_cell_to_u8(&self.cell_14), WebForm::convert_cell_to_u8(&self.cell_15),
-            WebForm::convert_cell_to_u8(&self.cell_16), WebForm::convert_cell_to_u8(&self.cell_17),
-            WebForm::convert_cell_to_u8(&self.cell_18), WebForm::convert_cell_to_u8(&self.cell_19),
-            WebForm::convert_cell_to_u8(&self.cell_20), WebForm::convert_cell_to_u8(&self.cell_21),
-            WebForm::convert_cell_to_u8(&self.cell_22), WebForm::convert_cell_to_u8(&self.cell_23),
-            WebForm::convert_cell_to_u8(&self.cell_24), WebForm::convert_cell_to_u8(&self.cell_25),
-            WebForm::convert_cell_to_u8(&self.cell_26), WebForm::convert_cell_to_u8(&self.cell_27),
-            WebForm::convert_cell_to_u8(&self.cell_28), WebForm::convert_cell_to_u8(&self.cell_29),
-            WebForm::convert_cell_to_u8(&self.cell_30), WebForm::convert_cell_to_u8(&self.cell_31),
-            WebForm::convert_cell_to_u8(&self.cell_32), WebForm::convert_cell_to_u8(&self.cell_33), 
-            WebForm::convert_cell_to_u8(&self.cell_34), WebForm::convert_cell_to_u8(&self.cell_35),
-            WebForm::convert_cell_to_u8(&self.cell_36), WebForm::convert_cell_to_u8(&self.cell_37),
-            WebForm::convert_cell_to_u8(&self.cell_38), WebForm::convert_cell_to_u8(&self.cell_39),
-            WebForm::convert_cell_to_u8(&self.cell_40), WebForm::convert_cell_to_u8(&self.cell_41),
-            WebForm::convert_cell_to_u8(&self.cell_42), WebForm::convert_cell_to_u8(&self.cell_43),
-            WebForm::convert_cell_to_u8(&self.cell_44), WebForm::convert_cell_to_u8(&self.cell_45),
-            WebForm::convert_cell_to_u8(&self.cell_46), WebForm::convert_cell_to_u8(&self.cell_47), 
-            WebForm::convert_cell_to_u8(&self.cell_48), WebForm::convert_cell_to_u8(&self.cell_49),
-            WebForm::convert_cell_to_u8(&self.cell_50), WebForm::convert_cell_to_u8(&self.cell_51),
-            WebForm::convert_cell_to_u8(&self.cell_52), WebForm::convert_cell_to_u8(&self.cell_53),
-            WebForm::convert_cell_to_u8(&self.cell_54), WebForm::convert_cell_to_u8(&self.cell_55),
-            WebForm::convert_cell_to_u8(&self.cell_56), WebForm::convert_cell_to_u8(&self.cell_57),
-            WebForm::convert_cell_to_u8(&self.cell_58), WebForm::convert_cell_to_u8(&self.cell_59),
-            WebForm::convert_cell_to_u8(&self.cell_60), WebForm::convert_cell_to_u8(&self.cell_61), 
-            WebForm::convert_cell_to_u8(&self.cell_62), WebForm::convert_cell_to_u8(&self.cell_63),
-            WebForm::convert_cell_to_u8(&self.cell_64), WebForm::convert_cell_to_u8(&self.cell_65),
-            WebForm::convert_cell_to_u8(&self.cell_66), WebForm::convert_cell_to_u8(&self.cell_67),
-            WebForm::convert_cell_to_u8(&self.cell_68), WebForm::convert_cell_to_u8(&self.cell_69),
-            WebForm::convert_cell_to_u8(&self.cell_70), WebForm::convert_cell_to_u8(&self.cell_71),
-            WebForm::convert_cell_to_u8(&self.cell_72), WebForm::convert_cell_to_u8(&self.cell_73),
-            WebForm::convert_cell_to_u8(&self.cell_74), WebForm::convert_cell_to_u8(&self.cell_75), 
-            WebForm::convert_cell_to_u8(&self.cell_76), WebForm::convert_cell_to_u8(&self.cell_77),
-            WebForm::convert_cell_to_u8(&self.cell_78), WebForm::convert_cell_to_u8(&self.cell_79),
-            WebForm::convert_cell_to_u8(&self.cell_80)))
+        BigBox::new(vec![
+            WebForm::convert_cell_to_u8(&self.cell_0),
+            WebForm::convert_cell_to_u8(&self.cell_1),
+            WebForm::convert_cell_to_u8(&self.cell_2),
+            WebForm::convert_cell_to_u8(&self.cell_3),
+            WebForm::convert_cell_to_u8(&self.cell_4),
+            WebForm::convert_cell_to_u8(&self.cell_5),
+            WebForm::convert_cell_to_u8(&self.cell_6),
+            WebForm::convert_cell_to_u8(&self.cell_7),
+            WebForm::convert_cell_to_u8(&self.cell_8),
+            WebForm::convert_cell_to_u8(&self.cell_9),
+            WebForm::convert_cell_to_u8(&self.cell_10),
+            WebForm::convert_cell_to_u8(&self.cell_11),
+            WebForm::convert_cell_to_u8(&self.cell_12),
+            WebForm::convert_cell_to_u8(&self.cell_13),
+            WebForm::convert_cell_to_u8(&self.cell_14),
+            WebForm::convert_cell_to_u8(&self.cell_15),
+            WebForm::convert_cell_to_u8(&self.cell_16),
+            WebForm::convert_cell_to_u8(&self.cell_17),
+            WebForm::convert_cell_to_u8(&self.cell_18),
+            WebForm::convert_cell_to_u8(&self.cell_19),
+            WebForm::convert_cell_to_u8(&self.cell_20),
+            WebForm::convert_cell_to_u8(&self.cell_21),
+            WebForm::convert_cell_to_u8(&self.cell_22),
+            WebForm::convert_cell_to_u8(&self.cell_23),
+            WebForm::convert_cell_to_u8(&self.cell_24),
+            WebForm::convert_cell_to_u8(&self.cell_25),
+            WebForm::convert_cell_to_u8(&self.cell_26),
+            WebForm::convert_cell_to_u8(&self.cell_27),
+            WebForm::convert_cell_to_u8(&self.cell_28),
+            WebForm::convert_cell_to_u8(&self.cell_29),
+            WebForm::convert_cell_to_u8(&self.cell_30),
+            WebForm::convert_cell_to_u8(&self.cell_31),
+            WebForm::convert_cell_to_u8(&self.cell_32),
+            WebForm::convert_cell_to_u8(&self.cell_33),
+            WebForm::convert_cell_to_u8(&self.cell_34),
+            WebForm::convert_cell_to_u8(&self.cell_35),
+            WebForm::convert_cell_to_u8(&self.cell_36),
+            WebForm::convert_cell_to_u8(&self.cell_37),
+            WebForm::convert_cell_to_u8(&self.cell_38),
+            WebForm::convert_cell_to_u8(&self.cell_39),
+            WebForm::convert_cell_to_u8(&self.cell_40),
+            WebForm::convert_cell_to_u8(&self.cell_41),
+            WebForm::convert_cell_to_u8(&self.cell_42),
+            WebForm::convert_cell_to_u8(&self.cell_43),
+            WebForm::convert_cell_to_u8(&self.cell_44),
+            WebForm::convert_cell_to_u8(&self.cell_45),
+            WebForm::convert_cell_to_u8(&self.cell_46),
+            WebForm::convert_cell_to_u8(&self.cell_47),
+            WebForm::convert_cell_to_u8(&self.cell_48),
+            WebForm::convert_cell_to_u8(&self.cell_49),
+            WebForm::convert_cell_to_u8(&self.cell_50),
+            WebForm::convert_cell_to_u8(&self.cell_51),
+            WebForm::convert_cell_to_u8(&self.cell_52),
+            WebForm::convert_cell_to_u8(&self.cell_53),
+            WebForm::convert_cell_to_u8(&self.cell_54),
+            WebForm::convert_cell_to_u8(&self.cell_55),
+            WebForm::convert_cell_to_u8(&self.cell_56),
+            WebForm::convert_cell_to_u8(&self.cell_57),
+            WebForm::convert_cell_to_u8(&self.cell_58),
+            WebForm::convert_cell_to_u8(&self.cell_59),
+            WebForm::convert_cell_to_u8(&self.cell_60),
+            WebForm::convert_cell_to_u8(&self.cell_61),
+            WebForm::convert_cell_to_u8(&self.cell_62),
+            WebForm::convert_cell_to_u8(&self.cell_63),
+            WebForm::convert_cell_to_u8(&self.cell_64),
+            WebForm::convert_cell_to_u8(&self.cell_65),
+            WebForm::convert_cell_to_u8(&self.cell_66),
+            WebForm::convert_cell_to_u8(&self.cell_67),
+            WebForm::convert_cell_to_u8(&self.cell_68),
+            WebForm::convert_cell_to_u8(&self.cell_69),
+            WebForm::convert_cell_to_u8(&self.cell_70),
+            WebForm::convert_cell_to_u8(&self.cell_71),
+            WebForm::convert_cell_to_u8(&self.cell_72),
+            WebForm::convert_cell_to_u8(&self.cell_73),
+            WebForm::convert_cell_to_u8(&self.cell_74),
+            WebForm::convert_cell_to_u8(&self.cell_75),
+            WebForm::convert_cell_to_u8(&self.cell_76),
+            WebForm::convert_cell_to_u8(&self.cell_77),
+            WebForm::convert_cell_to_u8(&self.cell_78),
+            WebForm::convert_cell_to_u8(&self.cell_79),
+            WebForm::convert_cell_to_u8(&self.cell_80),
+        ])
     }
 
     // convert all web form cells to a u8. default to 0 if something is entered incorrectly
-    pub fn convert_cell_to_u8(value: &String) -> u8 {
+    pub fn convert_cell_to_u8(value: &str) -> u8 {
         match value.parse::<u8>() {
-            Ok(i) => {
-                match i < 10 {
-                    true => i,
-                    _ => 0
-                }
+            Ok(i) => match i < 10 {
+                true => i,
+                _ => 0,
             },
-            _ => {
-                0 as u8
-            }
+            _ => 0 as u8,
         }
     }
 }
