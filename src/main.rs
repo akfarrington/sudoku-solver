@@ -118,129 +118,129 @@ fn index() -> HttpResponse {
       <table id=\"grid\">
 
         <tr>
-          <td><input maxlength=\"1\" name=\"cell_0\" id=\"cell_0\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_1\" id=\"cell_1\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_2\" id=\"cell_2\" type=\"number\" value=\"0\"></td>
+          <td><input maxlength=\"1\" name=\"cell_0\" id=\"cell_0\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_1\" id=\"cell_1\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_2\" id=\"cell_2\" type=\"number\"></td>
           
-          <td><input maxlength=\"1\" name=\"cell_3\" id=\"cell_3\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_4\" id=\"cell_4\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_5\" id=\"cell_5\" type=\"number\" value=\"0\"></td>
+          <td><input maxlength=\"1\" name=\"cell_3\" id=\"cell_3\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_4\" id=\"cell_4\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_5\" id=\"cell_5\" type=\"number\"></td>
           
-          <td><input maxlength=\"1\" name=\"cell_6\" id=\"cell_6\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_7\" id=\"cell_7\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_8\" id=\"cell_8\" type=\"number\" value=\"0\"></td>
+          <td><input maxlength=\"1\" name=\"cell_6\" id=\"cell_6\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_7\" id=\"cell_7\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_8\" id=\"cell_8\" type=\"number\"></td>
         </tr>
 
         <tr>
-          <td><input maxlength=\"1\" name=\"cell_9\" id=\"cell_9\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_10\" id=\"cell_10\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_11\" id=\"cell_11\" type=\"number\" value=\"0\"></td>
+          <td><input maxlength=\"1\" name=\"cell_9\" id=\"cell_9\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_10\" id=\"cell_10\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_11\" id=\"cell_11\" type=\"number\"></td>
           
-          <td><input maxlength=\"1\" name=\"cell_12\" id=\"cell_12\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_13\" id=\"cell_13\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_14\" id=\"cell_14\" type=\"number\" value=\"0\"></td>
+          <td><input maxlength=\"1\" name=\"cell_12\" id=\"cell_12\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_13\" id=\"cell_13\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_14\" id=\"cell_14\" type=\"number\"></td>
           
-          <td><input maxlength=\"1\" name=\"cell_15\" id=\"cell_15\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_16\" id=\"cell_16\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_17\" id=\"cell_17\" type=\"number\" value=\"0\"></td>
+          <td><input maxlength=\"1\" name=\"cell_15\" id=\"cell_15\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_16\" id=\"cell_16\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_17\" id=\"cell_17\" type=\"number\"></td>
         </tr>
 
         <tr>          
-          <td><input maxlength=\"1\" name=\"cell_18\" id=\"cell_18\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_19\" id=\"cell_19\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_20\" id=\"cell_20\" type=\"number\" value=\"0\"></td>
+          <td><input maxlength=\"1\" name=\"cell_18\" id=\"cell_18\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_19\" id=\"cell_19\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_20\" id=\"cell_20\" type=\"number\"></td>
           
-          <td><input maxlength=\"1\" name=\"cell_21\" id=\"cell_21\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_22\" id=\"cell_22\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_23\" id=\"cell_23\" type=\"number\" value=\"0\"></td>
+          <td><input maxlength=\"1\" name=\"cell_21\" id=\"cell_21\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_22\" id=\"cell_22\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_23\" id=\"cell_23\" type=\"number\"></td>
           
-          <td><input maxlength=\"1\" name=\"cell_24\" id=\"cell_24\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_25\" id=\"cell_25\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_26\" id=\"cell_26\" type=\"number\" value=\"0\"></td>
+          <td><input maxlength=\"1\" name=\"cell_24\" id=\"cell_24\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_25\" id=\"cell_25\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_26\" id=\"cell_26\" type=\"number\"></td>
         </tr>
 
         <tr>          
-          <td><input maxlength=\"1\" name=\"cell_27\" id=\"cell_27\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_28\" id=\"cell_28\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_29\" id=\"cell_29\" type=\"number\" value=\"0\"></td>
+          <td><input maxlength=\"1\" name=\"cell_27\" id=\"cell_27\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_28\" id=\"cell_28\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_29\" id=\"cell_29\" type=\"number\"></td>
           
-          <td><input maxlength=\"1\" name=\"cell_30\" id=\"cell_30\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_31\" id=\"cell_31\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_32\" id=\"cell_32\" type=\"number\" value=\"0\"></td>
+          <td><input maxlength=\"1\" name=\"cell_30\" id=\"cell_30\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_31\" id=\"cell_31\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_32\" id=\"cell_32\" type=\"number\"></td>
           
-          <td><input maxlength=\"1\" name=\"cell_33\" id=\"cell_33\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_34\" id=\"cell_34\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_35\" id=\"cell_35\" type=\"number\" value=\"0\"></td>
+          <td><input maxlength=\"1\" name=\"cell_33\" id=\"cell_33\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_34\" id=\"cell_34\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_35\" id=\"cell_35\" type=\"number\"></td>
         </tr>
 
         <tr>          
-          <td><input maxlength=\"1\" name=\"cell_36\" id=\"cell_36\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_37\" id=\"cell_37\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_38\" id=\"cell_38\" type=\"number\" value=\"0\"></td>
+          <td><input maxlength=\"1\" name=\"cell_36\" id=\"cell_36\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_37\" id=\"cell_37\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_38\" id=\"cell_38\" type=\"number\"></td>
           
-          <td><input maxlength=\"1\" name=\"cell_39\" id=\"cell_39\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_40\" id=\"cell_40\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_41\" id=\"cell_41\" type=\"number\" value=\"0\"></td>
+          <td><input maxlength=\"1\" name=\"cell_39\" id=\"cell_39\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_40\" id=\"cell_40\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_41\" id=\"cell_41\" type=\"number\"></td>
           
-          <td><input maxlength=\"1\" name=\"cell_42\" id=\"cell_42\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_43\" id=\"cell_43\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_44\" id=\"cell_44\" type=\"number\" value=\"0\"></td>
+          <td><input maxlength=\"1\" name=\"cell_42\" id=\"cell_42\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_43\" id=\"cell_43\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_44\" id=\"cell_44\" type=\"number\"></td>
         </tr>
 
         <tr>          
-          <td><input maxlength=\"1\" name=\"cell_45\" id=\"cell_45\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_46\" id=\"cell_46\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_47\" id=\"cell_47\" type=\"number\" value=\"0\"></td>
+          <td><input maxlength=\"1\" name=\"cell_45\" id=\"cell_45\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_46\" id=\"cell_46\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_47\" id=\"cell_47\" type=\"number\"></td>
           
-          <td><input maxlength=\"1\" name=\"cell_48\" id=\"cell_48\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_49\" id=\"cell_49\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_50\" id=\"cell_50\" type=\"number\" value=\"0\"></td>
+          <td><input maxlength=\"1\" name=\"cell_48\" id=\"cell_48\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_49\" id=\"cell_49\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_50\" id=\"cell_50\" type=\"number\"></td>
           
-          <td><input maxlength=\"1\" name=\"cell_51\" id=\"cell_51\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_52\" id=\"cell_52\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_53\" id=\"cell_53\" type=\"number\" value=\"0\"></td>
+          <td><input maxlength=\"1\" name=\"cell_51\" id=\"cell_51\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_52\" id=\"cell_52\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_53\" id=\"cell_53\" type=\"number\"></td>
         </tr>
 
         <tr>          
-          <td><input maxlength=\"1\" name=\"cell_54\" id=\"cell_54\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_55\" id=\"cell_55\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_56\" id=\"cell_56\" type=\"number\" value=\"0\"></td>
+          <td><input maxlength=\"1\" name=\"cell_54\" id=\"cell_54\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_55\" id=\"cell_55\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_56\" id=\"cell_56\" type=\"number\"></td>
           
-          <td><input maxlength=\"1\" name=\"cell_57\" id=\"cell_57\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_58\" id=\"cell_58\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_59\" id=\"cell_59\" type=\"number\" value=\"0\"></td>
+          <td><input maxlength=\"1\" name=\"cell_57\" id=\"cell_57\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_58\" id=\"cell_58\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_59\" id=\"cell_59\" type=\"number\"></td>
           
-          <td><input maxlength=\"1\" name=\"cell_60\" id=\"cell_60\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_61\" id=\"cell_61\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_62\" id=\"cell_62\" type=\"number\" value=\"0\"></td>
+          <td><input maxlength=\"1\" name=\"cell_60\" id=\"cell_60\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_61\" id=\"cell_61\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_62\" id=\"cell_62\" type=\"number\"></td>
         </tr>
 
         <tr>          
-          <td><input maxlength=\"1\" name=\"cell_63\" id=\"cell_63\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_64\" id=\"cell_64\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_65\" id=\"cell_65\" type=\"number\" value=\"0\"></td>
+          <td><input maxlength=\"1\" name=\"cell_63\" id=\"cell_63\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_64\" id=\"cell_64\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_65\" id=\"cell_65\" type=\"number\"></td>
           
-          <td><input maxlength=\"1\" name=\"cell_66\" id=\"cell_66\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_67\" id=\"cell_67\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_68\" id=\"cell_68\" type=\"number\" value=\"0\"></td>
+          <td><input maxlength=\"1\" name=\"cell_66\" id=\"cell_66\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_67\" id=\"cell_67\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_68\" id=\"cell_68\" type=\"number\"></td>
           
-          <td><input maxlength=\"1\" name=\"cell_69\" id=\"cell_69\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_70\" id=\"cell_70\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_71\" id=\"cell_71\" type=\"number\" value=\"0\"></td>
+          <td><input maxlength=\"1\" name=\"cell_69\" id=\"cell_69\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_70\" id=\"cell_70\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_71\" id=\"cell_71\" type=\"number\"></td>
         </tr>
 
         <tr>          
-          <td><input maxlength=\"1\" name=\"cell_72\" id=\"cell_72\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_73\" id=\"cell_73\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_74\" id=\"cell_74\" type=\"number\" value=\"0\"></td>
+          <td><input maxlength=\"1\" name=\"cell_72\" id=\"cell_72\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_73\" id=\"cell_73\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_74\" id=\"cell_74\" type=\"number\"></td>
         
-          <td><input maxlength=\"1\" name=\"cell_75\" id=\"cell_75\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_76\" id=\"cell_76\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_77\" id=\"cell_77\" type=\"number\" value=\"0\"></td>
+          <td><input maxlength=\"1\" name=\"cell_75\" id=\"cell_75\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_76\" id=\"cell_76\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_77\" id=\"cell_77\" type=\"number\"></td>
           
-          <td><input maxlength=\"1\" name=\"cell_78\" id=\"cell_78\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_79\" id=\"cell_79\" type=\"number\" value=\"0\"></td>
-          <td><input maxlength=\"1\" name=\"cell_80\" id=\"cell_80\" type=\"number\" value=\"0\"></td>
+          <td><input maxlength=\"1\" name=\"cell_78\" id=\"cell_78\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_79\" id=\"cell_79\" type=\"number\"></td>
+          <td><input maxlength=\"1\" name=\"cell_80\" id=\"cell_80\" type=\"number\"></td>
         </tr>
 
       </table>
